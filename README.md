@@ -20,11 +20,6 @@ LocalStorage Support: Users can resume after a page refresh.
 Custom Validation: Ensures correct email, phone, and required fields.
 Component-Based Code: Organized functions for modularity.
 
-**Installation & Setup**
-Clone the repository
-git clone https://github.com/yourusername/multi-step-form.git
-cd multi-step-form
-
 **Usage Guide**
 Fill out Step 1 (Basic Info) → Click Next
 Fill out Step 2 (Contact Info) → Click Next
