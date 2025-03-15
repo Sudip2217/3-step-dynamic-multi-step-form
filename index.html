@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digantara Multi-Step Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Digantara Registration</h1>
+            <p>Complete the form to get started</p>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress" id="progress"></div>
+            <div class="step active" id="step1">1<span class="step-label">Personal Info</span></div>
+            <div class="step" id="step2">2<span class="step-label">Contact Details</span></div>
+            <div class="step" id="step3">3<span class="step-label">Review & Submit</span></div>
+        </div>
+
+        <div class="form-container">
+            <div id="alert" class="alert alert-success">Form submitted successfully!</div>
+            
+            <!-- Step 1: Personal Information -->
+            <div class="form-step active" id="form-step-1">
+                <h2>Personal Information</h2>
+                <p style="margin-bottom: 1.5rem; color: var(--gray);">Please provide your basic details</p>
+
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" class="form-control" placeholder="Enter your full name">
+                    <div class="error-message" id="fullName-error">Please enter your full name</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" class="form-control">
+                    <div class="error-message" id="dob-error">Please enter a valid date of birth</div>
+                </div>
+
+                <div class="form-group">
+                    <label>Gender</label>
+                    <div class="custom-radio">
+                        <div class="radio-option">
+                            <input type="radio" id="male" name="gender" value="Male">
+                            <label for="male">Male</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="female" name="gender" value="Female">
+                            <label for="female">Female</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="other" name="gender" value="Other">
+                            <label for="other">Other</label>
+                        </div>
+                    </div>
+                    <div class="error-message" id="gender-error">Please select your gender</div>
+                </div>
+
+                <div class="btn-container">
+                    <div></div> 
+                    <button class="btn btn-primary" id="next-1">Next Step</button>
+                </div>
+            </div>
+
+            <!-- Step 2: Contact Information -->
+            <div class="form-step" id="form-step-2">
+                <h2>Contact Information</h2>
+                <p style="margin-bottom: 1.5rem; color: var(--gray);">Please provide your contact details</p>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" class="form-control" placeholder="Enter your email address">
+                    <div class="error-message" id="email-error">Please enter a valid email address</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" class="form-control" placeholder="Enter your phone number">
+                    <div class="error-message" id="phone-error">Please enter a valid phone number</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <textarea id="address" class="form-control" rows="3" placeholder="Enter your full address"></textarea>
+                    <div class="error-message" id="address-error">Please enter your address</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" id="city" class="form-control" placeholder="Enter your city">
+                    <div class="error-message" id="city-error">Please enter your city</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="zipcode">Zip Code</label>
+                    <input type="text" id="zipcode" class="form-control" placeholder="Enter your zip code">
+                    <div class="error-message" id="zipcode-error">Please enter a valid zip code</div>
+                </div>
+
+                <div class="btn-container">
+                    <button class="btn btn-secondary" id="prev-2">Previous Step</button>
+                    <button class="btn btn-primary" id="next-2">Next Step</button>
+                </div>
+            </div>
+
+            <!-- Step 3: Summary -->
+            <div class="form-step" id="form-step-3">
+                <h2>Review Your Information</h2>
+                <p style="margin-bottom: 1.5rem; color: var(--gray);">Please review your information before submitting</p>
+
+                <div class="summary-info">
+                    <h3>
+                        Personal Information 
+                        <button class="btn-edit" id="edit-step-1">
+                            <svg class="edit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                            </svg> 
+                            Edit
+                        </button>
+                    </h3>
+                    <div class="summary-item">
+                        <span class="summary-label">Full Name:</span>
+                        <span class="summary-value" id="summary-fullName">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Date of Birth:</span>
+                        <span class="summary-value" id="summary-dob">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Gender:</span>
+                        <span class="summary-value" id="summary-gender">-</span>
+                    </div>
+                </div>
+
+                <div class="summary-info">
+                    <h3>
+                        Contact Information 
+                        <button class="btn-edit" id="edit-step-2">
+                            <svg class="edit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                            </svg> 
+                            Edit
+                        </button>
+                    </h3>
+                    <div class="summary-item">
+                        <span class="summary-label">Email Address:</span>
+                        <span class="summary-value" id="summary-email">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Phone Number:</span>
+                        <span class="summary-value" id="summary-phone">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Address:</span>
+                        <span class="summary-value" id="summary-address">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">City:</span>
+                        <span class="summary-value" id="summary-city">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Zip Code:</span>
+                        <span class="summary-value" id="summary-zipcode">-</span>
+                    </div>
+                </div>
+
+                <div class="btn-container">
+                    <button class="btn btn-secondary" id="prev-3">Previous Step</button>
+                    <button class="btn btn-success" id="submit-form">Submit Form</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
